@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package chat;
+
+message ConversationMessage {
+  string role = 1;       // "user", "assistant", "system"
+  string content = 2;
+  int64 timestamp = 3;
+}
+
+message ChatStreamRequest {
+  string user_id = 1;
+  string session_id = 2;
+  repeated ConversationMessage conversation_history = 3;
+}
+
+message ChatResponse {
+  string message = 1;
+  bool is_final = 2;
+  int64 timestamp = 3;
+  string response_id = 4;
+}
+
+service ChatService {
+  rpc StreamChat(ChatStreamRequest) returns (stream ChatResponse);
+}

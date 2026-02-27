@@ -1,0 +1,348 @@
+/* Judiciary/Law Theme for Signup Page */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #23272e 0%, #3a1c1c 100%), url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><rect width="100%25" height="100%25" fill="none"/><ellipse cx="50%25" cy="60%25" rx="60%25" ry="40%25" fill="%23bfa76a11"/></svg>');
+  background-blend-mode: multiply;
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.formContainer {
+  position: relative;
+  width: 1000px;
+  height: 650px;
+  background: #23272e;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(44, 36, 24, 0.25);
+  overflow: hidden;
+  display: flex;
+  color: #f5f3ee;
+  border: 2px solid #bfa76a;
+}
+
+.slideContainer {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, #1a2233 80%, #bfa76a22 100%);
+  padding: 40px;
+  color: #bfa76a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slideActive {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.slidePrev,
+.slideNext {
+  opacity: 0;
+  z-index: 1;
+}
+
+.slideTitle {
+  font-size: 2.2rem;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #bfa76a;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slideTitle svg {
+  width: 2.2rem;
+  height: 2.2rem;
+  vertical-align: middle;
+  fill: #bfa76a;
+}
+
+.slideSubtitle {
+  font-size: 1.125rem;
+  color: #e5e0d8;
+  max-width: 30rem;
+  line-height: 1.6;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #bfa76a55;
+  border-radius: 50%;
+  border: 1.5px solid #bfa76a;
+  transition: background 0.3s;
+}
+
+.dotActive {
+  background-color: #bfa76a;
+}
+
+.form {
+  flex: 1;
+  padding: 48px 40px;
+  background: #fffdfa;
+  border-radius: 0 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 350px;
+  box-shadow: -8px 0 32px #bfa76a11;
+  color: #23272e;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.formTitle {
+  font-size: 2rem;
+  font-family: 'Merriweather', Georgia, serif;
+  color: #3a1c1c;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  font-size: 1rem;
+  font-family: 'Merriweather', Georgia, serif;
+  color: #3a1c1c;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  color: #23272e;
+  background: #f5f3ee;
+  border: 1.5px solid #bfa76a;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.input:focus {
+  border-color: #7c5a1e;
+  box-shadow: 0 0 0 2px #bfa76a55;
+}
+
+.formOptions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #3a1c1c;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.checkbox input[type="checkbox"] {
+  accent-color: #bfa76a;
+  margin-right: 0.5em;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(90deg, #3a1c1c 60%, #bfa76a 100%);
+  color: #fffdfa;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #bfa76a22;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.submitButton:hover {
+  background: linear-gradient(90deg, #bfa76a 0%, #3a1c1c 100%);
+  color: #23272e;
+}
+
+.divider {
+  text-align: center;
+  color: #bfa76a;
+  margin: 1.5rem 0 1rem 0;
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1rem;
+  position: relative;
+}
+
+.divider:before, .divider:after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: #bfa76a;
+  vertical-align: middle;
+  margin: 0 10px;
+  border-radius: 2px;
+}
+
+.socialLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  background: #fffdfa;
+  color: #3a1c1c;
+  border: 1.5px solid #bfa76a;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.socialBtn:hover {
+  background: #bfa76a;
+  color: #fffdfa;
+}
+
+.socialIcon {
+  margin-right: 0.7em;
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+}
+
+.googleIcon {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg') no-repeat center/contain;
+}
+
+.signupPrompt {
+  text-align: center;
+  color: #3a1c1c;
+  font-size: 1rem;
+  margin-top: 1.2rem;
+}
+
+.signupLink {
+  color: #7c5a1e;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 0.3em;
+  transition: color 0.2s;
+}
+
+.signupLink:hover {
+  color: #bfa76a;
+}
+
+.alertContainer {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.alert {
+  background: #7c5a1e;
+  color: #fffdfa;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #bfa76a33;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.alertClose {
+  background: none;
+  border: none;
+  color: #fffdfa;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+@media (max-width: 900px) {
+  .formContainer {
+    flex-direction: column;
+    width: 98vw;
+    height: auto;
+    min-height: 650px;
+  }
+  .slideContainer, .form {
+    width: 100%;
+    border-radius: 0;
+    min-width: unset;
+    padding: 32px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .formContainer {
+    width: 100vw;
+    min-width: unset;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .slideContainer, .form {
+    padding: 18px 4vw;
+  }
+  .form {
+    min-width: unset;
+  }
+}
