@@ -1,47 +1,63 @@
 import styles from '../styles/login.module.css';
 import { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
-import api from '../api'
+import { Link } from 'react-router-dom';
+import api from '../api';
 
 function Login() {
-  const[data,setData]=useState({
-    email:"",
-    password:""
+  const [data, setData] = useState({
+    email: '',
+    password: ''
   });
-  
 
-  const handleChange=({currentTarget:input}) =>{
-    setData({...data,[input.name]:input.value});
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
   };
+
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [error, setError] = useState('');
 
   const slides = [
     {
       title: (
         <>
-          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32"><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#bfa76a22"/><path d="M16 6c-3.866 0-7 3.134-7 7 0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4 0-3.866-3.134-7-7-7zm0 2c2.757 0 5 2.243 5 5 0 1.104-.896 2-2 2h-6c-1.104 0-2-.896-2-2 0-2.757 2.243-5 5-5zm-7 13c-2.21 0-4 1.79-4 4v1c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2v-1c0-2.21-1.79-4-4-4H9zm0 2h14c1.104 0 2 .896 2 2v1H7v-1c0-1.104.896-2 2-2z" fill="#bfa76a"/></g></svg>
-          Access Your Legal Portal
+          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32">
+            <g>
+              <circle cx="16" cy="16" r="15" fill="#bfa14a22" />
+              <path d="M16 7c-2.2 0-4 1.8-4 4v1h8v-1c0-2.2-1.8-4-4-4zm-6 7v11h2v-5h8v5h2V14H10zm4 2h4v2h-4v-2z" fill="#bfa14a" />
+            </g>
+          </svg>
+          Welcome Back to Cal AI
         </>
       ),
-      subtitle: "Sign in to your account and continue your journey with us"
+      subtitle: 'Track your calories, meals, and body goals in one focused AI dashboard.'
     },
     {
       title: (
         <>
-          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32"><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#bfa76a22"/><path d="M8 24v-2c0-2.21 1.79-4 4-4h8c2.21 0 4 1.79 4 4v2H8zm8-18c-3.866 0-7 3.134-7 7 0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4 0-3.866-3.134-7-7-7z" fill="#bfa76a"/></g></svg>
-          Secure Judiciary Login
+          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32">
+            <g>
+              <circle cx="16" cy="16" r="15" fill="#4f46e522" />
+              <path d="M16 5l8 4v6c0 5.2-3.4 10-8 12-4.6-2-8-6.8-8-12V9l8-4zm0 3.2L10 11v4c0 4.1 2.5 7.7 6 9.4 3.5-1.7 6-5.3 6-9.4v-4l-6-2.8z" fill="#4f46e5" />
+            </g>
+          </svg>
+          AI Plans Tailored to You
         </>
       ),
-      subtitle: "Your data is protected with enterprise-grade security"
+      subtitle: 'Get dynamic calorie and diet recommendations that adapt as your progress changes.'
     },
     {
       title: (
         <>
-          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32"><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#bfa76a22"/><path d="M16 4c-6.627 0-12 5.373-12 12 0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6zm-1 5v6l5 3 .75-1.23-4.25-2.52V11h-1z" fill="#bfa76a"/></g></svg>
-          Stay Connected
+          <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32">
+            <g>
+              <circle cx="16" cy="16" r="15" fill="#bfa14a22" />
+              <path d="M7 18h18v2H7v-2zm3-5h12v2H10v-2zm-2 10h16v2H8v-2zm8-17c3.9 0 7 3.1 7 7h-2c0-2.8-2.2-5-5-5s-5 2.2-5 5H9c0-3.9 3.1-7 7-7z" fill="#bfa14a" />
+            </g>
+          </svg>
+          Build Consistency Daily
         </>
       ),
-      subtitle: "Access your dashboard and manage your legal matters seamlessly"
+      subtitle: 'Log food quickly, monitor macro balance, and keep your routine on track every day.'
     }
   ];
 
@@ -58,42 +74,40 @@ function Login() {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
-  const[error,setError]=useState("");
-  const handleSubmit = async(e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
-      const url="http://localhost:5000/api/auth";
-      const {data:res} =await api.post(url,data);
-      localStorage.setItem("token",res.data);
-      window.location="/";
+
+    try {
+      const { data: res } = await api.post('/auth', data);
+      localStorage.setItem('token', res.data);
+      window.location = '/';
       console.log(res.message);
-    } catch(error){
-      if(error.response && 
-        error.response.status >=400 &&
-        error.response.status <=500
-      ){
-        setError(error.response.data.message);
+    } catch (apiError) {
+      if (apiError.response) {
+        setError(apiError.response.data.message);
+      } else {
+        setError('Unable to connect to server');
       }
     }
-    console.log('Signup submitted');
   };
-
 
   return (
     <div className={styles.container}>
-          {error && (
-          <div className={styles.alertContainer}>
-            <div className={styles.alert}>
-              <span>{error}</span>
-              <button className={styles.alertClose} onClick={() => setError(null)}>
-                ×
-              </button>
-            </div>
+      {error && (
+        <div className={styles.alertContainer}>
+          <div className={styles.alert}>
+            <span>{error}</span>
+            <button className={styles.alertClose} onClick={() => setError('')} type="button">
+              x
+            </button>
           </div>
-        )}
+        </div>
+      )}
+
       <div className={styles.formContainer}>
         <div className={styles.slideContainer}>
+          <div className={styles.brandPill}>Cal AI</div>
           <div className={styles.slideWrapper}>
             {slides.map((slide, index) => (
               <div
@@ -118,6 +132,7 @@ function Login() {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`${styles.dot} ${index === currentSlide ? styles.dotActive : ''}`}
+                type="button"
               />
             ))}
           </div>
@@ -125,56 +140,60 @@ function Login() {
 
         <div className={styles.form}>
           <h3 className={styles.formTitle}>
-            <svg aria-hidden="true" viewBox="0 0 32 32" width="28" height="28" style={{marginRight:'0.5em',verticalAlign:'middle'}}><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#bfa76a22"/><path d="M8 24v-2c0-2.21 1.79-4 4-4h8c2.21 0 4 1.79 4 4v2H8zm8-18c-3.866 0-7 3.134-7 7 0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4 0-3.866-3.134-7-7-7z" fill="#bfa76a"/></g></svg>
-            Access Your Legal Portal
+            <svg aria-hidden="true" viewBox="0 0 32 32" width="28" height="28">
+              <g>
+                <circle cx="16" cy="16" r="15" fill="#bfa14a22" />
+                <path d="M16 7c-2.2 0-4 1.8-4 4v1h8v-1c0-2.2-1.8-4-4-4zm-6 7v11h2v-5h8v5h2V14H10zm4 2h4v2h-4v-2z" fill="#bfa14a" />
+              </g>
+            </svg>
+            Sign in to Cal AI
           </h3>
-          <form onSubmit={handleSubmit} >
 
+          <p className={styles.formIntro}>
+            Continue to your personalized calorie and diet plan.
+          </p>
 
+          <form onSubmit={handleSubmit}>
+            <div className={styles.inputGroup}>
+              <label className={styles.label}>Email address</label>
+              <input
+                type="email"
+                className={styles.input}
+                name="email"
+                value={data.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
 
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Email</label>
-            <input
-              type="email"
-              className={styles.input}
-              name="email"
-              value={data.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          
-          <div className={styles.inputGroup}>
-            <label className={styles.label}>Password</label>
-            <input
-              type="password"
-              className={styles.input}
-              name="password"
-              value={data.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-          
-          <div className={styles.formOptions}>
-            <label className={styles.checkbox}>
-              <input type="checkbox" />
-              <span>Remember me</span>
-            </label>
-            <Link to="/forgot-password" className={styles.forgotPassword}>
-              Forgot password?
-            </Link>
-          </div>
-          
-          <button className={styles.submitButton}>
-            Login
-          </button>
+            <div className={styles.inputGroup}>
+              <label className={styles.label}>Password</label>
+              <input
+                type="password"
+                className={styles.input}
+                name="password"
+                value={data.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <div className={styles.formOptions}>
+              <label className={styles.checkbox}>
+                <input type="checkbox" />
+                <span>Remember me</span>
+              </label>
+              <Link to="/forgot-password" className={styles.forgotPassword}>
+                Forgot password?
+              </Link>
+            </div>
+
+            <button className={styles.submitButton}>Continue</button>
           </form>
-          <div className={styles.divider}>
-            or continue with
-          </div>
+
+          <div className={styles.divider}>or continue with</div>
 
           <div className={styles.socialLogin}>
             <button type="button" className={styles.socialBtn}>
@@ -182,9 +201,9 @@ function Login() {
               Continue with Google
             </button>
           </div>
-          
+
           <p className={styles.signupPrompt}>
-            Don't have an account?{' '}
+            Don&apos;t have an account?
             <Link to="/signup" className={styles.signupLink}>
               Sign Up
             </Link>

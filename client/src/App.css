@@ -1,3 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap');
 
-/* ...existing code... */
+.route-shell {
+  min-height: 100vh;
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.route-shell.page-fade-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.route-shell.page-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-shell {
+    transition: none;
+    transform: none;
+  }
+}

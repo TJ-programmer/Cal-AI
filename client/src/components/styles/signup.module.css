@@ -1,45 +1,83 @@
-/* Judiciary/Law Theme for Signup Page */
+:root {
+  --bg: #0b0f19;
+  --card-bg: #1a1f2e;
+  --primary: #bfa14a;
+  --accent: #4f46e5;
+  --text: #e5e7eb;
+}
+
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 100vw;
-  background: linear-gradient(135deg, #23272e 0%, #3a1c1c 100%), url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><rect width="100%25" height="100%25" fill="none"/><ellipse cx="50%25" cy="60%25" rx="60%25" ry="40%25" fill="%23bfa76a11"/></svg>');
-  background-blend-mode: multiply;
-  font-family: 'Merriweather', Georgia, serif;
+  width: 100%;
+  padding: 32px 20px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 8%, #4f46e538 0%, transparent 30%),
+    radial-gradient(circle at 84% 92%, #bfa14a2a 0%, transparent 36%),
+    linear-gradient(160deg, #0b0f19 0%, #121828 100%);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(transparent 96%, #ffffff10 100%),
+    linear-gradient(90deg, transparent 96%, #ffffff10 100%);
+  background-size: 34px 34px;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .formContainer {
   position: relative;
-  width: 1000px;
-  height: 650px;
-  background: #23272e;
+  z-index: 1;
+  width: min(1040px, 100%);
+  min-height: 660px;
   border-radius: 24px;
-  box-shadow: 0 25px 50px rgba(44, 36, 24, 0.25);
   overflow: hidden;
-  display: flex;
-  color: #f5f3ee;
-  border: 2px solid #bfa76a;
+  border: 1px solid #ffffff14;
+  background: var(--card-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 24px 60px #00000066;
 }
 
 .slideContainer {
   position: relative;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, #1a2233 80%, #bfa76a22 100%);
-  padding: 40px;
-  color: #bfa76a;
+  padding: 42px 42px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  background:
+    radial-gradient(circle at 15% 12%, #4f46e540 0%, transparent 40%),
+    radial-gradient(circle at 78% 86%, #bfa14a35 0%, transparent 43%),
+    linear-gradient(145deg, #1a1f2e 0%, #121624 100%);
+}
+
+.brandPill {
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #bfa14a1a;
+  border: 1px solid #bfa14a4d;
+  color: var(--primary);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .slideWrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  min-height: 300px;
+  margin-top: 24px;
 }
 
 .slide {
@@ -47,245 +85,245 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .slideActive {
   opacity: 1;
-  transform: scale(1);
-  z-index: 2;
+  transform: translateY(0);
 }
 
 .slidePrev,
 .slideNext {
   opacity: 0;
-  z-index: 1;
 }
 
 .slideTitle {
-  font-size: 2.2rem;
-  font-family: 'Merriweather', Georgia, serif;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: #bfa76a;
-  letter-spacing: 0.5px;
+  margin: 0 0 16px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 12px;
+  color: var(--text);
+  font-size: 2.05rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .slideTitle svg {
-  width: 2.2rem;
-  height: 2.2rem;
-  vertical-align: middle;
-  fill: #bfa76a;
+  flex-shrink: 0;
 }
 
 .slideSubtitle {
-  font-size: 1.125rem;
-  color: #e5e0d8;
-  max-width: 30rem;
-  line-height: 1.6;
-  font-family: 'Lato', Arial, sans-serif;
+  margin: 0;
+  max-width: 440px;
+  color: #d1d5db;
+  font-size: 1.02rem;
+  line-height: 1.7;
 }
 
 .dotsContainer {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .dot {
   width: 10px;
   height: 10px;
-  background-color: #bfa76a55;
-  border-radius: 50%;
-  border: 1.5px solid #bfa76a;
-  transition: background 0.3s;
+  border-radius: 999px;
+  border: 1px solid #ffffff26;
+  background: #ffffff20;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.dot:hover {
+  transform: scale(1.1);
 }
 
 .dotActive {
-  background-color: #bfa76a;
+  width: 28px;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .form {
-  flex: 1;
-  padding: 48px 40px;
-  background: #fffdfa;
-  border-radius: 0 24px 24px 0;
+  padding: 52px 44px;
+  background: linear-gradient(160deg, #1a1f2e 0%, #171d2a 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 350px;
-  box-shadow: -8px 0 32px #bfa76a11;
-  color: #23272e;
-  font-family: 'Lato', Arial, sans-serif;
 }
 
 .formTitle {
-  font-size: 2rem;
-  font-family: 'Merriweather', Georgia, serif;
-  color: #3a1c1c;
-  margin-bottom: 1.5rem;
+  margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
+  color: var(--text);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.formIntro {
+  margin: 10px 0 24px;
+  color: #9ca3af;
+  font-size: 0.96rem;
+}
+
+.nameRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .inputGroup {
-  margin-bottom: 1.2rem;
+  margin-bottom: 16px;
 }
 
 .label {
-  font-size: 1rem;
-  font-family: 'Merriweather', Georgia, serif;
-  color: #3a1c1c;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .input {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 1rem;
-  color: #23272e;
-  background: #f5f3ee;
-  border: 1.5px solid #bfa76a;
-  border-radius: 8px;
+  border: 1px solid #ffffff1f;
+  background: #0f1420;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 0.96rem;
+  padding: 13px 14px;
   outline: none;
-  transition: border 0.3s, box-shadow 0.3s;
-  font-family: 'Lato', Arial, sans-serif;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.input::placeholder {
+  color: #6b7280;
 }
 
 .input:focus {
-  border-color: #7c5a1e;
-  box-shadow: 0 0 0 2px #bfa76a55;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #4f46e533;
 }
 
 .formOptions {
   display: flex;
   align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 18px;
 }
 
 .checkbox {
   display: flex;
   align-items: center;
-  font-size: 0.98rem;
-  color: #3a1c1c;
-  font-family: 'Lato', Arial, sans-serif;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.88rem;
 }
 
-.checkbox input[type="checkbox"] {
-  accent-color: #bfa76a;
-  margin-right: 0.5em;
+.checkbox input[type='checkbox'] {
+  accent-color: var(--accent);
 }
 
 .submitButton {
   width: 100%;
-  background: linear-gradient(90deg, #3a1c1c 60%, #bfa76a 100%);
-  color: #fffdfa;
-  font-family: 'Merriweather', Georgia, serif;
-  font-size: 1.1rem;
-  font-weight: 700;
   border: none;
-  border-radius: 8px;
-  padding: 14px 0;
-  margin-top: 0.5rem;
-  margin-bottom: 1.2rem;
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 4px;
+  color: #0b0f19;
+  background: linear-gradient(135deg, #bfa14a 0%, #cfb15a 100%);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  box-shadow: 0 2px 8px #bfa76a22;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .submitButton:hover {
-  background: linear-gradient(90deg, #bfa76a 0%, #3a1c1c 100%);
-  color: #23272e;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px #bfa14a3d;
 }
 
 .divider {
-  text-align: center;
-  color: #bfa76a;
-  margin: 1.5rem 0 1rem 0;
-  font-family: 'Merriweather', Georgia, serif;
-  font-size: 1rem;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 14px;
+  color: #9ca3af;
+  font-size: 0.86rem;
 }
 
-.divider:before, .divider:after {
+.divider::before,
+.divider::after {
   content: '';
-  display: inline-block;
-  width: 40px;
-  height: 2px;
-  background: #bfa76a;
-  vertical-align: middle;
-  margin: 0 10px;
-  border-radius: 2px;
+  flex: 1;
+  height: 1px;
+  background: #ffffff1f;
 }
 
 .socialLogin {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 14px;
 }
 
 .socialBtn {
+  width: 100%;
+  border: 1px solid #ffffff1f;
+  border-radius: 12px;
+  padding: 11px 14px;
+  background: #121826;
+  color: var(--text);
   display: flex;
   align-items: center;
-  background: #fffdfa;
-  color: #3a1c1c;
-  border: 1.5px solid #bfa76a;
-  border-radius: 8px;
-  padding: 10px 24px;
-  font-size: 1rem;
-  font-family: 'Lato', Arial, sans-serif;
-  font-weight: 600;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.93rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  margin-bottom: 0.5rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
 .socialBtn:hover {
-  background: #bfa76a;
-  color: #fffdfa;
+  border-color: #4f46e56e;
+  background: #161d2d;
 }
 
 .socialIcon {
-  margin-right: 0.7em;
-  width: 1.5em;
-  height: 1.5em;
-  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .googleIcon {
-  background: url('https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg') no-repeat center/contain;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg') no-repeat center / contain;
 }
 
 .signupPrompt {
+  margin: 10px 0 0;
+  color: #9ca3af;
   text-align: center;
-  color: #3a1c1c;
-  font-size: 1rem;
-  margin-top: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .signupLink {
-  color: #7c5a1e;
-  font-weight: 700;
-  text-decoration: underline;
-  margin-left: 0.3em;
-  transition: color 0.2s;
+  margin-left: 7px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .signupLink:hover {
-  color: #bfa76a;
+  color: #d8be68;
 }
 
 .alertContainer {
@@ -293,56 +331,92 @@
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 4;
 }
 
 .alert {
-  background: #7c5a1e;
-  color: #fffdfa;
-  padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px #bfa76a33;
+  min-width: 300px;
+  max-width: calc(100vw - 40px);
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #bfa14a5f;
+  background: #3a3117;
+  color: #f6e6b2;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 1em;
-  font-family: 'Lato', Arial, sans-serif;
+  gap: 12px;
+  font-size: 0.88rem;
 }
 
 .alertClose {
-  background: none;
   border: none;
-  color: #fffdfa;
-  font-size: 1.2em;
+  background: transparent;
+  color: #f6e6b2;
+  font-size: 1rem;
+  line-height: 1;
   cursor: pointer;
-  margin-left: 1em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .formContainer {
-    flex-direction: column;
-    width: 98vw;
-    height: auto;
-    min-height: 650px;
+    grid-template-columns: 1fr;
+    max-width: 640px;
   }
-  .slideContainer, .form {
-    width: 100%;
-    border-radius: 0;
-    min-width: unset;
-    padding: 32px 16px;
-  }
-}
 
-@media (max-width: 600px) {
-  .formContainer {
-    width: 100vw;
-    min-width: unset;
-    border-radius: 0;
-    box-shadow: none;
+  .slideContainer {
+    min-height: 330px;
+    padding: 32px 28px 24px;
   }
-  .slideContainer, .form {
-    padding: 18px 4vw;
+
+  .slideWrapper {
+    min-height: 220px;
   }
+
+  .slideTitle {
+    font-size: 1.6rem;
+  }
+
   .form {
+    padding: 34px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .formContainer {
+    border-radius: 18px;
+  }
+
+  .slideContainer {
+    padding: 24px 20px 20px;
+  }
+
+  .form {
+    padding: 24px 20px;
+  }
+
+  .nameRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+
+  .slideTitle {
+    font-size: 1.32rem;
+  }
+
+  .slideSubtitle {
+    font-size: 0.93rem;
+  }
+
+  .alert {
     min-width: unset;
   }
 }

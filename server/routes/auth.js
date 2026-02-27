@@ -2,6 +2,7 @@ const router =require("express").Router();
 const{User} =require("../models/user");
 const joi=require("joi");
 const bcrypt=require("bcrypt");
+
 router.post('/',async (req,res) =>{
     try {
         const{error}=validate(req.body)
@@ -20,16 +21,9 @@ router.post('/',async (req,res) =>{
             return res.status(401).send({message:"Invalid email or password"});
 
         const token=user.generateAuthToken();
-        const refreshToken=user.generateRefreshToken();
-        res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', 
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000 
-        });
-        res.status(200).send({data:token,message:"Login Successfull"});
+        res.status(200).send({data:token,message:"Login successful"});
     } catch (error) {
-        res.status(500).send({message:"Internal Server error"});
+        res.status(500).send({message:"Internal server error"});
     }
 })
 
