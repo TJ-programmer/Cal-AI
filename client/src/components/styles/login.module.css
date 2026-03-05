@@ -1,9 +1,10 @@
 :root {
-  --bg: #0b0f19;
-  --card-bg: #1a1f2e;
-  --primary: #bfa14a;
-  --accent: #4f46e5;
-  --text: #e5e7eb;
+  --bg: #0F172A;
+  --card-bg: #0F172A;
+  --primary: #6366F1;
+  --secondary: #22D3EE;
+  --accent: #F97316;
+  --text: #E2E8F0;
 }
 
 .container {
@@ -16,9 +17,9 @@
   padding: 32px 20px;
   color: var(--text);
   background:
-    radial-gradient(circle at 12% 8%, #4f46e538 0%, transparent 30%),
-    radial-gradient(circle at 84% 92%, #bfa14a2a 0%, transparent 36%),
-    linear-gradient(160deg, #0b0f19 0%, #121828 100%);
+    radial-gradient(circle at 12% 8%, #6366F138 0%, transparent 30%),
+    radial-gradient(circle at 84% 92%, #22D3EE2a 0%, transparent 36%),
+    linear-gradient(160deg, #0F172A 0%, #0B1324 100%);
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   overflow: hidden;
 }
@@ -28,8 +29,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(transparent 96%, #ffffff10 100%),
-    linear-gradient(90deg, transparent 96%, #ffffff10 100%);
+    linear-gradient(transparent 96%, #6366F115 100%),
+    linear-gradient(90deg, transparent 96%, #6366F115 100%);
   background-size: 34px 34px;
   opacity: 0.35;
   pointer-events: none;
@@ -42,11 +43,11 @@
   min-height: 640px;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid #ffffff14;
+  border: 1px solid #6366F118;
   background: var(--card-bg);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 0 24px 60px #00000066;
+  box-shadow: 0 24px 60px #0B132480;
 }
 
 .slideContainer {
@@ -56,17 +57,17 @@
   flex-direction: column;
   justify-content: space-between;
   background:
-    radial-gradient(circle at 15% 12%, #4f46e540 0%, transparent 40%),
-    radial-gradient(circle at 78% 86%, #bfa14a35 0%, transparent 43%),
-    linear-gradient(145deg, #1a1f2e 0%, #121624 100%);
+    radial-gradient(circle at 15% 12%, #6366F140 0%, transparent 40%),
+    radial-gradient(circle at 78% 86%, #F9731635 0%, transparent 43%),
+    linear-gradient(145deg, #0F172A 0%, #0F172A 100%);
 }
 
 .brandPill {
   align-self: flex-start;
   padding: 8px 14px;
   border-radius: 999px;
-  background: #bfa14a1a;
-  border: 1px solid #bfa14a4d;
+  background: #6366F11a;
+  border: 1px solid #6366F14d;
   color: var(--primary);
   font-size: 0.82rem;
   letter-spacing: 0.08em;
@@ -120,7 +121,7 @@
 .slideSubtitle {
   margin: 0;
   max-width: 440px;
-  color: #d1d5db;
+  color: #CBD5F5;
   font-size: 1.02rem;
   line-height: 1.7;
 }
@@ -136,8 +137,8 @@
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  border: 1px solid #ffffff26;
-  background: #ffffff20;
+  border: 1px solid #22D3EE2f;
+  background: #22D3EE24;
   cursor: pointer;
   transition: transform 0.25s ease, background-color 0.25s ease;
 }
@@ -154,7 +155,7 @@
 
 .form {
   padding: 52px 44px;
-  background: linear-gradient(160deg, #1a1f2e 0%, #171d2a 100%);
+  background: linear-gradient(160deg, #0F172A 0%, #111827 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -174,7 +175,7 @@
 
 .formIntro {
   margin: 10px 0 26px;
-  color: #9ca3af;
+  color: #94A3B8;
   font-size: 0.96rem;
 }
 
@@ -185,15 +186,15 @@
 .label {
   display: inline-block;
   margin-bottom: 8px;
-  color: #d1d5db;
+  color: #CBD5F5;
   font-size: 0.9rem;
   font-weight: 500;
 }
 
 .input {
   width: 100%;
-  border: 1px solid #ffffff1f;
-  background: #0f1420;
+  border: 1px solid #6366F121;
+  background: #0B1324;
   border-radius: 12px;
   color: var(--text);
   font-size: 0.96rem;
@@ -203,12 +204,12 @@
 }
 
 .input::placeholder {
-  color: #6b7280;
+  color: #94A3B8;
 }
 
 .input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px #4f46e533;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px #22D3EE33;
 }
 
 .formOptions {
@@ -222,16 +223,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #cbd5e1;
+  color: #E2E8F0;
   font-size: 0.88rem;
 }
 
 .checkbox input[type='checkbox'] {
-  accent-color: var(--accent);
+  accent-color: var(--secondary);
 }
 
 .forgotPassword {
-  color: #c7d2fe;
+  color: #22D3EE;
   text-decoration: none;
   font-size: 0.88rem;
 }
@@ -246,8 +247,8 @@
   border-radius: 12px;
   padding: 13px;
   margin-top: 4px;
-  color: #0b0f19;
-  background: linear-gradient(135deg, #bfa14a 0%, #cfb15a 100%);
+  color: #0F172A;
+  background: linear-gradient(135deg, #F97316 0%, #6366F1 100%);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -257,7 +258,7 @@
 
 .submitButton:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 18px #bfa14a3d;
+  box-shadow: 0 10px 18px #F973163d;
 }
 
 .divider {
@@ -265,7 +266,7 @@
   align-items: center;
   gap: 10px;
   margin: 22px 0 14px;
-  color: #9ca3af;
+  color: #94A3B8;
   font-size: 0.86rem;
 }
 
@@ -274,7 +275,7 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: #ffffff1f;
+  background: #6366F121;
 }
 
 .socialLogin {
@@ -283,10 +284,10 @@
 
 .socialBtn {
   width: 100%;
-  border: 1px solid #ffffff1f;
+  border: 1px solid #6366F121;
   border-radius: 12px;
   padding: 11px 14px;
-  background: #121826;
+  background: #0B1324;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -299,8 +300,8 @@
 }
 
 .socialBtn:hover {
-  border-color: #4f46e56e;
-  background: #161d2d;
+  border-color: #22D3EE6e;
+  background: #0F1A2A;
 }
 
 .socialIcon {
@@ -315,7 +316,7 @@
 
 .signupPrompt {
   margin: 10px 0 0;
-  color: #9ca3af;
+  color: #94A3B8;
   text-align: center;
   font-size: 0.9rem;
 }
@@ -328,7 +329,7 @@
 }
 
 .signupLink:hover {
-  color: #d8be68;
+  color: #22D3EE;
 }
 
 .alertContainer {
@@ -344,9 +345,9 @@
   max-width: calc(100vw - 40px);
   padding: 11px 14px;
   border-radius: 10px;
-  border: 1px solid #bfa14a5f;
-  background: #3a3117;
-  color: #f6e6b2;
+  border: 1px solid #F973165f;
+  background: #0F172A;
+  color: #F97316;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -357,7 +358,7 @@
 .alertClose {
   border: none;
   background: transparent;
-  color: #f6e6b2;
+  color: #F97316;
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
@@ -420,3 +421,6 @@
     min-width: unset;
   }
 }
+
+
+

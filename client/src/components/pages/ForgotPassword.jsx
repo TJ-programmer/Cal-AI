@@ -57,7 +57,7 @@ const ForgotPasswordPage = () => {
       <div className={styles.container}>
         <div className={styles.card}>
           <div className={styles.successMessage}>
-            ✅ Password reset link sent successfully!
+            Success: Password reset link sent.
           </div>
           <h1 className={styles.title}>Check Your Email</h1>
           <p className={styles.subtitle}>
@@ -74,7 +74,7 @@ const ForgotPasswordPage = () => {
             Try Again
           </button>
           <Link to="/login" className={styles.backLink}>
-            ← Back to Sign In
+            &larr; Back to Sign In
           </Link>
         </div>
       </div>
@@ -85,8 +85,8 @@ const ForgotPasswordPage = () => {
     <div className={styles.container}>
       <div className={styles.card}>
         <h1 className={styles.title}>
-          <svg aria-hidden="true" viewBox="0 0 32 32" width="28" height="28" style={{marginRight:'0.5em',verticalAlign:'middle'}}><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#bfa76a22"/><path d="M16 6c-3.866 0-7 3.134-7 7 0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4 0-3.866-3.134-7-7-7zm0 2c2.757 0 5 2.243 5 5 0 1.104-.896 2-2 2h-6c-1.104 0-2-.896-2-2 0-2.757 2.243-5 5-5zm-7 13c-2.21 0-4 1.79-4 4v1c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2v-1c0-2.21-1.79-4-4-4H9zm0 2h14c1.104 0 2 .896 2 2v1H7v-1c0-1.104.896-2 2-2z" fill="#bfa76a"/></g></svg>
-          Recover Access to Your Legal Account
+          <svg aria-hidden="true" viewBox="0 0 32 32" width="28" height="28" style={{marginRight:'0.5em',verticalAlign:'middle'}}><g><ellipse cx="16" cy="16" rx="15" ry="15" fill="#F9731622"/><path d="M16 6c-3.866 0-7 3.134-7 7 0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4 0-3.866-3.134-7-7-7zm0 2c2.757 0 5 2.243 5 5 0 1.104-.896 2-2 2h-6c-1.104 0-2-.896-2-2 0-2.757 2.243-5 5-5zm-7 13c-2.21 0-4 1.79-4 4v1c0 1.104.896 2 2 2h18c1.104 0 2-.896 2-2v-1c0-2.21-1.79-4-4-4H9zm0 2h14c1.104 0 2 .896 2 2v1H7v-1c0-1.104.896-2 2-2z" fill="#F97316"/></g></svg>
+          Recover Access to Your Cal AI Account
         </h1>
         <p className={styles.subtitle}>
           Enter your email address and we'll send you a link to reset your password.
@@ -122,7 +122,7 @@ const ForgotPasswordPage = () => {
         </div>
 
         <Link to="/login" className={styles.backLink}>
-          ← Back to Sign In
+          &larr; Back to Sign In
         </Link>
       </div>
     </div>
